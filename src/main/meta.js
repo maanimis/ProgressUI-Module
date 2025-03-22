@@ -2,9 +2,8 @@
 // @name        ProgressUI Module
 // @namespace   Violentmonkey Scripts
 // @description Reusable progress UI module
-// @version     0.1
+// @version     0.7
 // @author      process.env.AUTHOR
-// @grant       unsafeWindow
 // @run-at       document-idle
 // @license MIT
 // ==/UserScript==

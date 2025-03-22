@@ -99,6 +99,20 @@ class ProgressUI {
     const status = document.createElement('div');
     const progressBar = document.createElement('div');
     const percentText = document.createElement('div');
+    const progressBarContainer = document.createElement('div');
+
+    // Set up the DOM structure
+    progressBarContainer.appendChild(progressBar);
+    container.appendChild(status);
+    container.appendChild(progressBarContainer);
+    container.appendChild(percentText);
+
+    // Add classes for easier styling (optional)
+    container.classList.add('progress-ui-container');
+    status.classList.add('progress-ui-status');
+    progressBarContainer.classList.add('progress-ui-bar-container');
+    progressBar.classList.add('progress-ui-bar');
+    percentText.classList.add('progress-ui-percent');
 
     return { container, status, progressBar, percentText };
   }
@@ -160,8 +174,8 @@ class ProgressUI {
     this.addOptionalElements();
   }
 
-  private getPositionStyles(): CSSStyleDeclaration {
-    const positionStyles = new CSSStyleDeclaration();
+  private getPositionStyles(): Record<string, string> {
+    const positionStyles: Record<string, string> = {};
 
     switch (this.config.position) {
       case 'top-left':
@@ -252,8 +266,10 @@ class ProgressUI {
   }
 }
 
-const globalContext =
-  typeof unsafeWindow !== 'undefined' ? unsafeWindow : window;
+const globalContext = window;
 globalContext.ProgressUI = ProgressUI;
 
 export { ProgressUI };
+
+// const globalContext =
+//   typeof unsafeWindow !== 'undefined' ? unsafeWindow : window;
