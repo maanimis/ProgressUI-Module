@@ -1,14 +1,12 @@
 // ==UserScript==
-// @name        My Script
+// @name        ProgressUI Module
 // @namespace   Violentmonkey Scripts
-// @description This is a userscript.
-// @match       *://*/*
-// @grant       GM_addStyle
-// @version     0.0.0
+// @description Reusable progress UI module
+// @version     0.1
 // @author      process.env.AUTHOR
-// @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
-// @require     https://cdn.jsdelivr.net/npm/@violentmonkey/ui@0.7
-// @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2/dist/solid.min.js
+// @grant       unsafeWindow
+// @run-at       document-idle
+// @license MIT
 // ==/UserScript==
 
 /**

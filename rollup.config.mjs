@@ -14,7 +14,7 @@ const extensions = ['.ts', '.tsx', '.mjs', '.js', '.jsx'];
 
 export default defineConfig(
   Object.entries({
-    'awesome-script': 'src/awesome-script/index.ts',
+    'ProgressUI': 'src/main/index.ts',
   }).map(([name, entry]) => ({
     input: entry,
     plugins: [
