@@ -2,11 +2,10 @@
 // @name        ProgressUI Module
 // @namespace   Violentmonkey Scripts
 // @description Reusable progress UI module
-// @version     0.1
+// @version     0.7
 // @author      maanimis
 // @run-at      document-idle
 // @license     MIT
-// @grant       unsafeWindow
 // ==/UserScript==
 
 (function () {
@@ -102,6 +101,20 @@ class ProgressUI {
     const status = document.createElement('div');
     const progressBar = document.createElement('div');
     const percentText = document.createElement('div');
+    const progressBarContainer = document.createElement('div');
+
+    // Set up the DOM structure
+    progressBarContainer.appendChild(progressBar);
+    container.appendChild(status);
+    container.appendChild(progressBarContainer);
+    container.appendChild(percentText);
+
+    // Add classes for easier styling (optional)
+    container.classList.add('progress-ui-container');
+    status.classList.add('progress-ui-status');
+    progressBarContainer.classList.add('progress-ui-bar-container');
+    progressBar.classList.add('progress-ui-bar');
+    percentText.classList.add('progress-ui-percent');
     return {
       container,
       status,
@@ -164,7 +177,7 @@ class ProgressUI {
     this.addOptionalElements();
   }
   getPositionStyles() {
-    const positionStyles = new CSSStyleDeclaration();
+    const positionStyles = {};
     switch (this.config.position) {
       case 'top-left':
         positionStyles.top = '20px';
@@ -242,7 +255,10 @@ class ProgressUI {
     }
   }
 }
-const globalContext = typeof unsafeWindow !== 'undefined' ? unsafeWindow : window;
+const globalContext = window;
 globalContext.ProgressUI = ProgressUI;
+
+// const globalContext =
+//   typeof unsafeWindow !== 'undefined' ? unsafeWindow : window;
 
 })();
